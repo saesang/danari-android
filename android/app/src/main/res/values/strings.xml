@@ -1,5 +1,76 @@
 <resources>
     <string name="app_name">danari</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="dropdown_branch">
+        <item>교양분과</item>
+        <item>봉사분과</item>
+        <item>학술분과</item>
+        <item>공연예술분과</item>
+        <item>문예창작분과</item>
+        <item>종교분과</item>
+        <item>체육분과</item>
+    </string-array>
+    <string-array name="dropdown_liberalArts">
+        <item>놀이사랑</item>
+        <item>에스프레시보</item>
+        <item>영화예술연구회</item>
+        <item>화경다회</item>
+        <item>단국서예회</item>
+    </string-array>
+    <string-array name="dropdown_volunteer">
+        <item>단비</item>
+        <item>미소</item>
+        <item>선우리</item>
+        <item>아이사랑</item>
+        <item>UNSA</item>
+        <item>Enactus</item>
+        <item>은가비</item>
+    </string-array>
+    <string-array name="dropdown_academic">
+        <item>NEWSWEEK</item>
+        <item>일본어회화반</item>
+        <item>DCC</item>
+        <item>별사랑</item>
+        <item>Aegis</item>
+        <item>IF</item>
+        <item>CAGI</item>
+    </string-array>
+    <string-array name="dropdown_performingArts">
+        <item>가객</item>
+        <item>다솜합창단</item>
+        <item>모닥불</item>
+        <item>MUSE</item>
+        <item>NRSC</item>
+        <item>일레케브라</item>
+        <item>자드락</item>
+        <item>아스테르</item>
+    </string-array>
+    <string-array name="dropdown_literaryCreation">
+        <item>극예술연구회</item>
+        <item>글그림</item>
+        <item>광고친구</item>
+        <item>사진예술연구회</item>
+        <item>SUMMIT</item>
+    </string-array>
+    <string-array name="dropdown_religious">
+        <item>네비게이토</item>
+        <item>CCC</item>
+        <item>UBF</item>
+        <item>가톨릭학생회</item>
+        <item>JOY선교회</item>
+    </string-array>
+    <string-array name="dropdown_sports">
+        <item>DKUTC</item>
+        <item>무혼</item>
+        <item>산악부</item>
+        <item>위너스</item>
+        <item>요트부</item>
+        <item>ACE</item>
+        <item>ONELOVE</item>
+        <item>코디악베어즈</item>
+        <item>PANDAS</item>
+        <item>FLY</item>
+        <item>피닉스</item>
+        <item>검도부</item>
+        <item>단쿼시</item>
+    </string-array>
 </resources>
