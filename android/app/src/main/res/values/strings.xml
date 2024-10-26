@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">danari</string>
+    <string name="main_home_map_title">혜당관</string>
+    <string name="main_home_list_title">전체동아리</string>
+    <string name="main_home_map_floor">%층</string>
+
+
     <string-array name="dropdown_branch">
         <item>교양분과</item>
         <item>봉사분과</item>
