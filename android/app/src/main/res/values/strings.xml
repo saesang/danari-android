@@ -6,6 +6,9 @@
     <string name="main_home_list_title">전체동아리</string>
     <string name="main_home_map_floor">%층</string>
     <string name="circle_item_location">| %s</string>
+    <string name="post_title_hint">제목을 입력해주세요</string>
+    <string name="post_contents_hint">내용을 입력해주세요</string>
+    <string name="post_add_picture">*최대 10장까지 가능해요</string>
 
     <string-array name="dropdown_branch">
         <item>교양분과</item>
