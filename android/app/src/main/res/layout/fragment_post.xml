@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="22dp"
+    android:paddingEnd="22dp"
+    tools:context=".presentation.ui.PostFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/B2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="게시글 작성"
+            android:textColor="@color/BLACK"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/B6_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="제목"
+        android:textColor="@color/BLACK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleLayout" />
+
+    <EditText
+        android:id="@+id/titleEditText"
+        style="@style/B6_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/box_stroke_r8_200"
+        android:hint="@string/post_title_hint"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/BLACK"
+        android:textColorHint="@color/GS_400"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/content"
+        style="@style/B6_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="내용"
+        android:textColor="@color/BLACK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleEditText" />
+
+    <EditText
+        android:id="@+id/contentEditText"
+        style="@style/B6_3"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/box_stroke_r8_200"
+        android:gravity="top|start"
+        android:hint="@string/post_contents_hint"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/BLACK"
+        android:textColorHint="@color/GS_400"
+        app:layout_constraintTop_toBottomOf="@+id/content" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentEditText">
+
+        <TextView
+            style="@style/B6_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진 첨부"
+            android:textColor="@color/BLACK" />
+
+        <TextView
+            style="@style/B7_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_add_picture"
+            android:textColor="@color/BLACK" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addPictureBtn"
+        style="@style/B7_1"
+        android:layout_width="64dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/box_non_stroke_r85"
+        android:backgroundTint="@color/BLACK"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:text="+ 추가"
+        android:textColor="@color/WHITE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentEditText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pictureList"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/addPictureBtn" />
+
+    <Button
+        android:id="@+id/postBtn"
+        style="@style/B3_1"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/box_non_stroke_r8_blue"
+        android:text="등록"
+        android:textColor="@color/WHITE"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

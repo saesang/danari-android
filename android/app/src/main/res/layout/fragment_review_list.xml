@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="35dp"
+    android:orientation="vertical"
+    android:paddingStart="22dp"
+    android:paddingEnd="22dp"
+    tools:context=".presentation.ui.ReviewListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/B2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="활동후기"
+            android:textColor="@color/BLACK"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reviewList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/reviewPostLayout"
+        app:layout_constraintTop_toBottomOf="@+id/titleLayout" />
+
+    <LinearLayout
+        android:id="@+id/reviewPostLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/reviewEditText"
+            style="@style/B6_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/box_non_stroke_r8_blue"
+            android:backgroundTint="#F3F5F7"
+            android:hint="활동후기를 남겨보세요"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/GS_700"
+            android:textColorHint="@color/GS_500" />
+
+        <Button
+            android:id="@+id/postBtn"
+            style="@style/B6_2"
+            android:layout_width="69dp"
+            android:layout_height="38dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/box_non_stroke_r8_blue"
+            android:enabled="false"
+            android:text="등록"
+            android:textColor="@color/WHITE" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

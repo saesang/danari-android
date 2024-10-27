@@ -51,7 +51,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/B5_1"
+                style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1. 이름을 입력해주세요"
@@ -59,7 +59,7 @@
 
             <EditText
                 android:id="@+id/nameEditText"
-                style="@style/B5_2"
+                style="@style/B6_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -80,7 +80,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/B5_1"
+                style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2. 학번을 입력해주세요"
@@ -88,7 +88,7 @@
 
             <EditText
                 android:id="@+id/numberEditText"
-                style="@style/B5_2"
+                style="@style/B6_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -109,7 +109,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/B5_1"
+                style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3. 아이디를 입력해주세요"
@@ -117,7 +117,7 @@
 
             <EditText
                 android:id="@+id/idEditText"
-                style="@style/B5_2"
+                style="@style/B6_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -138,7 +138,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/B5_1"
+                style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4. 비밀번호를 입력해주세요"
@@ -146,7 +146,7 @@
 
             <EditText
                 android:id="@+id/pwEditText"
-                style="@style/B5_2"
+                style="@style/B6_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -160,7 +160,7 @@
         </LinearLayout>
 
         <TextView
-            style="@style/B5_1"
+            style="@style/B6_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -177,7 +177,7 @@
 
             <RadioButton
                 android:id="@+id/inBtn"
-                style="@style/B5_1"
+                style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/selector_radio"
@@ -189,7 +189,7 @@
 
             <RadioButton
                 android:id="@+id/notInBtn"
-                style="@style/B5_1"
+                style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:button="@drawable/selector_radio"
@@ -200,7 +200,7 @@
 
 
         <TextView
-            style="@style/B5_1"
+            style="@style/B6_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -209,7 +209,7 @@
             android:textColor="@color/GS_800" />
 
         <TextView
-            style="@style/B6_1"
+            style="@style/B6_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -257,7 +257,7 @@
                 style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="18dp"
                 android:text="임원 여부"
                 android:textColor="@color/GS_800" />
 
@@ -270,7 +270,7 @@
 
                 <RadioButton
                     android:id="@+id/leaderBtn"
-                    style="@style/B5_1"
+                    style="@style/B6_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@drawable/selector_radio"
@@ -282,7 +282,7 @@
 
                 <RadioButton
                     android:id="@+id/noLeaderBtn"
-                    style="@style/B5_1"
+                    style="@style/B6_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@drawable/selector_radio"
@@ -308,7 +308,7 @@
 
 
         <TextView
-            style="@style/B5_1"
+            style="@style/B6_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -317,7 +317,7 @@
             android:textColor="@color/GS_800" />
 
         <TextView
-            style="@style/B6_1"
+            style="@style/B6_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
