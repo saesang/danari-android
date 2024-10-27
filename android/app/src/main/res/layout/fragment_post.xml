@@ -139,22 +139,22 @@
         android:id="@+id/pictureList"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/addPictureBtn"
-        android:layout_marginTop="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/addPictureBtn" />
 
     <Button
-        android:id="@+id/postingBtn"
+        android:id="@+id/postBtn"
         style="@style/B3_1"
         android:layout_width="match_parent"
         android:layout_height="59dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/box_non_stroke_r8_blue"
         android:text="등록"
         android:textColor="@color/WHITE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="48dp"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
