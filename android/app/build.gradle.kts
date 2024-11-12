@@ -1,3 +1,9 @@
+import java.io.FileInputStream
+import java.util.Properties
+
+var properties = Properties()
+properties.load(FileInputStream("local.properties"))
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -15,6 +21,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "DANARI_BASE_URL", properties.getProperty("DANARI_BASE_URL"))
     }
 
     buildTypes {
@@ -25,6 +32,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -48,18 +58,22 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // androidx webkit
-    implementation("androidx.webkit:webkit:1.10.0")
+    implementation(libs.androidx.webkit)
 
     // recyclerView
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.androidx.recyclerview)
 
     // viewModel
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
-    implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.activity.ktx)
 
     // Glide
-    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation(libs.glide)
 
     // security
-    implementation("androidx.security:security-crypto-ktx:1.1.0-alpha06")
+    implementation(libs.androidx.security.crypto.ktx)
+
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 }
