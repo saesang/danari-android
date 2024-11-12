@@ -59,4 +59,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    // security
+    implementation("androidx.security:security-crypto-ktx:1.1.0-alpha06")
 }
