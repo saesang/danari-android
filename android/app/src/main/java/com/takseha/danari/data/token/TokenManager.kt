@@ -57,28 +57,4 @@ class TokenManager @Inject constructor(
             }
         }
     }
-
-    suspend fun registerUser(authService: AuthService, request: RegisterRequest): String? {
-        return withContext(Dispatchers.IO) {
-            try {
-                val token = "Bearer $accessToken"
-                val response = authService.registerUser(request)
-
-                if (response.isSuccessful) {
-                    response.body()
-                } else {
-                    Log.e(
-                        "TokenManager",
-                        "register response status: ${response.code()}\nregister response message: ${
-                            response.errorBody()?.string()
-                        }"
-                    )
-                    null
-                }
-            } catch (e: Exception) {
-                Log.e("TokenManager", "register error: ${e.message}")
-                throw e
-            }
-        }
-    }
 }
