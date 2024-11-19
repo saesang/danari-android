@@ -1,8 +1,12 @@
 package com.takseha.danari.data.repository.auth
 
 import com.takseha.danari.data.api.AuthService
-import com.takseha.danari.data.api.RetrofitInstance
+import javax.inject.Inject
 
-class AuthRepository {
-    private val client = RetrofitInstance.getInstance().create(AuthService::class.java)
+
+class AuthRepository @Inject constructor(
+    private val client: AuthService
+) {
+//    suspend fun func1(request: RequestType) =
+//        client.func1(request)
 }
