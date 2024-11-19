@@ -2,26 +2,21 @@ package com.takseha.danari.data.token
 
 import android.content.Context
 import android.util.Log
-import com.takseha.danari.BuildConfig
 import com.takseha.danari.data.api.AuthService
 import com.takseha.danari.data.dto.auth.LoginRequest
-import com.takseha.danari.data.dto.auth.LoginResponse
 import com.takseha.danari.data.dto.auth.RegisterRequest
+import com.takseha.danari.data.dto.auth.TokenResponse
 import com.takseha.danari.data.sharedPreferences.SP
 import com.takseha.danari.data.sharedPreferences.SPKey
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class TokenManager(context: Context) {
+class TokenManager @Inject constructor(
+    @ApplicationContext context: Context
+) {
     private val prefs = SP(context)
-    private val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BuildConfig.DANARI_BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-    private val loginApi = retrofit.create(AuthService::class.java)
-
 
     var accessToken: String?
         get() = prefs.loadPref(SPKey.ACCESS_TOKEN, "")
@@ -35,15 +30,18 @@ class TokenManager(context: Context) {
             prefs.savePref(SPKey.REFRESH_TOKEN, value!!)
         }
 
-    suspend fun login(userId: String, password: String): LoginResponse? {
+    suspend fun login(authService: AuthService, userId: String, password: String): TokenResponse? {
         return withContext(Dispatchers.IO) {
             try {
                 val request = LoginRequest(userId = userId, password = password)
-                val response = loginApi.login(request)
+                val response = authService.login(request)
 
                 if (response.isSuccessful) {
-                    accessToken = response.body()!!.accessToken
-                    response.body()!!
+                    response.body()?.let {
+                        accessToken = it.accessToken
+                        refreshToken = it.refreshToken
+                        it
+                    }
                 } else {
                     Log.e(
                         "TokenManager",
@@ -60,14 +58,14 @@ class TokenManager(context: Context) {
         }
     }
 
-    suspend fun registerUser(request: RegisterRequest): String? {
+    suspend fun registerUser(authService: AuthService, request: RegisterRequest): String? {
         return withContext(Dispatchers.IO) {
             try {
                 val token = "Bearer $accessToken"
-                val response = loginApi.registerUser(request)
+                val response = authService.registerUser(request)
 
                 if (response.isSuccessful) {
-                    response.body()!!
+                    response.body()
                 } else {
                     Log.e(
                         "TokenManager",
