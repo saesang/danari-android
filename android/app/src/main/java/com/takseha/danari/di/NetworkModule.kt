@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.takseha.danari.BuildConfig
 import com.takseha.danari.data.api.AuthService
+import com.takseha.danari.data.api.CircleService
 import com.takseha.danari.data.token.TokenInterceptor
 import com.takseha.danari.data.token.TokenManager
 import dagger.Module
@@ -20,7 +21,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
     @Provides
     @Singleton
     fun provideTokenManager(@ApplicationContext context: Context): TokenManager {
@@ -63,5 +63,11 @@ object NetworkModule {
     @Singleton
     fun provideAuthService(@AuthRetrofit retrofit: Retrofit): AuthService {
         return retrofit.create(AuthService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCircleService(@DefaultRetrofit retrofit: Retrofit): CircleService {
+        return retrofit.create(CircleService::class.java)
     }
 }

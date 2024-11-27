@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
                     viewmodel.loginState.collectLatest {
                         if (it != null) {
                             if (it) {
-                                startActivity(Intent(this@LoginActivity, CircleHomeActivity::class.java))
+                                startActivity(Intent(this@LoginActivity, MainHomeActivity::class.java))
                             } else {
                                 wrongInfoMessage.visibility = VISIBLE
                             }

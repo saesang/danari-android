@@ -1,4 +1,4 @@
-package com.takseha.danari.data.repository.auth
+package com.takseha.danari.data.repository
 
 import android.util.Log
 import com.takseha.danari.data.api.AuthService
@@ -25,11 +25,12 @@ class AuthRepository @Inject constructor(
                     response.body()?.let {
                         tokenManager.accessToken = it.accessToken
                         tokenManager.refreshToken = it.refreshToken
+                        Log.d("AuthRepository", it.accessToken)
                         it
                     }
                 } else {
                     Log.e(
-                        "TokenManager",
+                        "AuthRepository",
                         "login response status: ${response.code()}\nlogin response message: ${
                             response.errorBody()?.string()
                         }"
@@ -37,7 +38,7 @@ class AuthRepository @Inject constructor(
                     null
                 }
             } catch (e: Exception) {
-                Log.e("TokenManager", e.message.toString())
+                Log.e("AuthRepository", e.message.toString())
                 throw e
             }
         }

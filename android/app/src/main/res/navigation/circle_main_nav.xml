@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/circle_main_nav"
+    app:startDestination="@id/circleMainFragment">
+
+    <fragment
+        android:id="@+id/circleMainFragment"
+        android:name="com.takseha.danari.presentation.ui.CircleMainFragment"
+        android:label="fragment_circle_main"
+        tools:layout="@layout/fragment_circle_main" />
+</navigation>

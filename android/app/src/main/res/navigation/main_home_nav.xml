@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/circle_home_nav"
+    app:startDestination="@id/circleMapFragment">
+    <fragment
+        android:id="@+id/circleMapFragment"
+        android:name="com.takseha.danari.presentation.ui.CircleMapFragment"
+        android:label="fragment_circle_map"
+        tools:layout="@layout/fragment_circle_map" >
+        <action
+            android:id="@+id/action_circleMapFragment_to_circleListFragment"
+            app:destination="@id/circleListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/circleListFragment"
+        android:name="com.takseha.danari.presentation.ui.CircleListFragment"
+        android:label="fragment_circle_list"
+        tools:layout="@layout/fragment_circle_list" >
+        <action
+            android:id="@+id/action_circleListFragment_to_circleMapFragment"
+            app:destination="@id/circleMapFragment" />
+    </fragment>
+</navigation>

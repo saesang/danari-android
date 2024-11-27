@@ -23,7 +23,7 @@ class TokenInterceptor(
 
     private fun addTokenToRequest(request: Request, token: String?): Request {
         return request.newBuilder()
-            .header("Authorization", token)
+            .header("Authorization", "Bearer $token")
             .build()
     }
 }
