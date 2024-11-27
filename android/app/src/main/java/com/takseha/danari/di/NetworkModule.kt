@@ -28,13 +28,6 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideOkHttpClient(tokenManager: TokenManager): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(TokenInterceptor(tokenManager))
-            .build()
-    }
-
-    @Provides
     fun provideGson(): Gson {
         return GsonBuilder()
             .setLenient()
@@ -43,17 +36,32 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    @AuthRetrofit
+    fun provideAuthRetrofit(gson: Gson): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.DANARI_BASE_URL)
-            .client(okHttpClient)
+            .client(OkHttpClient.Builder()
+                .build())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideAuthService(retrofit: Retrofit): AuthService {
+    @DefaultRetrofit
+    fun provideDefaultRetrofit(tokenManager: TokenManager, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.DANARI_BASE_URL)
+            .client(OkHttpClient.Builder()
+                .addInterceptor(TokenInterceptor(tokenManager))
+                .build())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthService(@AuthRetrofit retrofit: Retrofit): AuthService {
         return retrofit.create(AuthService::class.java)
     }
 }

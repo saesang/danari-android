@@ -29,32 +29,4 @@ class TokenManager @Inject constructor(
         set(value) {
             prefs.savePref(SPKey.REFRESH_TOKEN, value!!)
         }
-
-    suspend fun login(authService: AuthService, userId: String, password: String): TokenResponse? {
-        return withContext(Dispatchers.IO) {
-            try {
-                val request = LoginRequest(userId = userId, password = password)
-                val response = authService.login(request)
-
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        accessToken = it.accessToken
-                        refreshToken = it.refreshToken
-                        it
-                    }
-                } else {
-                    Log.e(
-                        "TokenManager",
-                        "login response status: ${response.code()}\nlogin response message: ${
-                            response.errorBody()?.string()
-                        }"
-                    )
-                    null
-                }
-            } catch (e: Exception) {
-                Log.e("TokenManager", e.message.toString())
-                throw e
-            }
-        }
-    }
 }
