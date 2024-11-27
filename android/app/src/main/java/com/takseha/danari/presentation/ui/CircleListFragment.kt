@@ -103,6 +103,8 @@ class CircleListFragment : Fragment() {
             override fun onClick(view: View, position: Int) {
                 val intent = Intent(requireContext(), CircleHomeActivity::class.java)
                 intent.putExtra("clubName", clubList[position].clubName)
+                intent.putExtra("description", clubList[position].description)
+                intent.putExtra("roomNumber", clubList[position].roomNumber)
                 startActivity(intent)
             }
         }

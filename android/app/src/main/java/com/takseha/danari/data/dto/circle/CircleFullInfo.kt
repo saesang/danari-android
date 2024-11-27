@@ -11,11 +11,11 @@ data class CircleFullInfo(
     @SerializedName("description")
     val description: String = "",
     @SerializedName("events")
-    val events: List<Event> = listOf(),
+    val events: List<Post> = listOf(),
     @SerializedName("id")
     val id: Int = 0,
     @SerializedName("recruitments")
-    val recruitments: List<Recruitment> = listOf(),
+    val recruitments: List<Post> = listOf(),
     @SerializedName("reviews")
     val reviews: List<Review> = listOf(),
     @SerializedName("roomNumber")

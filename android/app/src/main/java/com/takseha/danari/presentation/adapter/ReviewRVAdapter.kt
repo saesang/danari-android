@@ -23,6 +23,7 @@ class ReviewRVAdapter(
     class ViewHolder(val binding: ItemReviewBinding) : RecyclerView.ViewHolder(binding.root) {
         val content = binding.contents
         val date = binding.reviewDate
+        val username = binding.reviewerName
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,7 +34,8 @@ class ReviewRVAdapter(
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.content.text = reviewList[position].reviewContent
-        holder.date.text = reviewList[position].createdAt
+        holder.date.text = reviewList[position].createdAt.substringBefore('T')
+        holder.username.text = reviewList[position].username
 
         // 클릭 이벤트 처리
         holder.itemView.setOnClickListener { v ->
