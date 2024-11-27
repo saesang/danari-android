@@ -1,275 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/BACKGROUND"
-    android:fillViewport="true"
-    tools:context=".presentation.ui.RegisterActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.takseha.danari.presentation.viewmodel.RegisterViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="30dp">
-
-            <ImageView
-                android:id="@+id/backBtn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_back_btn"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                style="@style/B2_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="회원가입"
-                android:textColor="@color/BLACK"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/BACKGROUND"
+        android:fillViewport="true"
+        tools:context=".presentation.ui.RegisterActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1. 이름을 입력해주세요"
-                android:textColor="@color/GS_800" />
-
-            <EditText
-                android:id="@+id/nameEditText"
-                style="@style/B6_2"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/box_stroke_r8_200"
-                android:hint="ex. 김단국"
-                android:paddingStart="12dp"
-                android:paddingTop="14dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="14dp"
-                android:textColorHint="@color/GS_400" />
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/backBtn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_back_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2. 학번을 입력해주세요"
-                android:textColor="@color/GS_800" />
-
-            <EditText
-                android:id="@+id/numberEditText"
-                style="@style/B6_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/box_stroke_r8_200"
-                android:hint="ex. 32210000"
-                android:paddingStart="12dp"
-                android:paddingTop="14dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="14dp"
-                android:textColorHint="@color/GS_400" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3. 아이디를 입력해주세요"
-                android:textColor="@color/GS_800" />
-
-            <EditText
-                android:id="@+id/idEditText"
-                style="@style/B6_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/box_stroke_r8_200"
-                android:hint="ex. dankook"
-                android:paddingStart="12dp"
-                android:paddingTop="14dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="14dp"
-                android:textColorHint="@color/GS_400" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4. 비밀번호를 입력해주세요"
-                android:textColor="@color/GS_800" />
-
-            <EditText
-                android:id="@+id/pwEditText"
-                style="@style/B6_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/box_stroke_r8_200"
-                android:inputType="numberPassword"
-                android:paddingStart="12dp"
-                android:paddingTop="14dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="14dp" />
-
-        </LinearLayout>
-
-        <TextView
-            style="@style/B6_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="44dp"
-            android:text="5. 동아리 소속 여부를 체크해주세요"
-            android:textColor="@color/GS_800" />
-
-        <RadioGroup
-            android:id="@+id/isInCircleRadioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/inBtn"
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/selector_radio"
-                android:checked="true"
-                android:drawablePadding="8dp"
-                android:paddingEnd="60dp"
-                android:text="소속"
-                android:textColor="@color/GS_700" />
-
-            <RadioButton
-                android:id="@+id/notInBtn"
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/selector_radio"
-                android:drawablePadding="8dp"
-                android:text="비소속"
-                android:textColor="@color/GS_700" />
-        </RadioGroup>
-
-
-        <TextView
-            style="@style/B6_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="44dp"
-            android:text="5-1. 소속 동아리 정보를 입력해주세요"
-            android:textColor="@color/GS_800" />
-
-        <TextView
-            style="@style/B6_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="* 동아리 소속 학생만 답변"
-            android:textColor="@color/GS_500" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/box_stroke_r8_200"
-            android:orientation="vertical"
-            android:padding="14dp">
-
-            <TextView
-                style="@style/B6_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="동아리 이름"
-                android:textColor="@color/GS_800" />
+                <TextView
+                    style="@style/B2_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="회원가입"
+                    android:textColor="@color/BLACK"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="44dp"
+                android:orientation="vertical">
 
-                <Spinner
-                    android:id="@+id/branchSpinner"
-                    android:layout_width="0dp"
+                <TextView
+                    style="@style/B6_1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:entries="@array/dropdown_branch" />
+                    android:text="1. 이름을 입력해주세요"
+                    android:textColor="@color/GS_800" />
 
-                <Spinner
-                    android:id="@+id/circleSpinner"
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/nameEditText"
+                    style="@style/B6_2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:entries="@array/dropdown_liberalArts" />
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/box_stroke_r8_200"
+                    android:hint="ex. 김단국"
+                    android:paddingStart="12dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="14dp"
+                    android:text="@={viewModel.name}"
+                    android:textColorHint="@color/GS_400" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/B6_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. 학번을 입력해주세요"
+                    android:textColor="@color/GS_800" />
+
+                <EditText
+                    android:id="@+id/numberEditText"
+                    style="@style/B6_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/box_stroke_r8_200"
+                    android:hint="ex. 32210000"
+                    android:paddingStart="12dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="14dp"
+                    android:text="@={viewModel.studentId}"
+                    android:textColorHint="@color/GS_400" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/B6_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. 아이디를 입력해주세요"
+                    android:textColor="@color/GS_800" />
+
+                <EditText
+                    android:id="@+id/idEditText"
+                    style="@style/B6_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/box_stroke_r8_200"
+                    android:hint="ex. dankook"
+                    android:paddingStart="12dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="14dp"
+                    android:text="@={viewModel.id}"
+                    android:textColorHint="@color/GS_400" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/B6_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. 비밀번호를 입력해주세요"
+                    android:textColor="@color/GS_800" />
+
+                <EditText
+                    android:id="@+id/pwEditText"
+                    style="@style/B6_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/box_stroke_r8_200"
+                    android:inputType="textPassword"
+                    android:paddingStart="12dp"
+                    android:paddingTop="14dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="14dp"
+                    android:text="@={viewModel.password}" />
+
             </LinearLayout>
 
             <TextView
                 style="@style/B6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="임원 여부"
+                android:layout_gravity="start"
+                android:layout_marginTop="44dp"
+                android:text="5. 동아리 소속 여부를 체크해주세요"
                 android:textColor="@color/GS_800" />
 
             <RadioGroup
-                android:id="@+id/isLeaderRadioGroup"
+                android:id="@+id/isInCircleRadioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
+                android:onCheckedChanged="@{(group, checkedId) -> viewModel.onInClubCheckedChanged(checkedId)}"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/leaderBtn"
+                    android:id="@+id/inBtn"
                     style="@style/B6_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -277,76 +198,172 @@
                     android:checked="true"
                     android:drawablePadding="8dp"
                     android:paddingEnd="60dp"
-                    android:text="회장"
+                    android:text="소속"
                     android:textColor="@color/GS_700" />
 
                 <RadioButton
-                    android:id="@+id/noLeaderBtn"
+                    android:id="@+id/notInBtn"
                     style="@style/B6_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:button="@drawable/selector_radio"
                     android:drawablePadding="8dp"
-                    android:text="부원"
+                    android:text="비소속"
                     android:textColor="@color/GS_700" />
             </RadioGroup>
 
+
+            <TextView
+                style="@style/B6_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="44dp"
+                android:text="5-1. 소속 동아리 정보를 입력해주세요"
+                android:textColor="@color/GS_800" />
+
+            <TextView
+                style="@style/B6_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="* 동아리 소속 학생만 답변"
+                android:textColor="@color/GS_500" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/box_stroke_r8_200"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/B6_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="동아리 이름"
+                    android:textColor="@color/GS_800" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/branchSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:entries="@array/dropdown_branch"
+                        android:onItemSelected="@{(parent, view, position, id) -> viewModel.onBranchSelected(parent.getItemAtPosition(position).toString())}" />
+
+                    <Spinner
+                        android:id="@+id/circleSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/dropdown_liberalArts"
+                        android:onItemSelected="@{(parent, view, position, id) -> viewModel.onClubNameSelected(parent.getItemAtPosition(position).toString())}" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/B6_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="임원 여부"
+                    android:textColor="@color/GS_800" />
+
+                <RadioGroup
+                    android:id="@+id/isLeaderRadioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:onCheckedChanged="@{(group, checkedId) -> viewModel.onRoleCheckedChanged(checkedId)}"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/leaderBtn"
+                        style="@style/B6_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/selector_radio"
+                        android:drawablePadding="8dp"
+                        android:paddingEnd="60dp"
+                        android:text="회장"
+                        android:textColor="@color/GS_700" />
+
+                    <RadioButton
+                        android:id="@+id/noLeaderBtn"
+                        style="@style/B6_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/selector_radio"
+                        android:drawablePadding="8dp"
+                        android:text="부원"
+                        android:textColor="@color/GS_700" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addCircleBtn"
+                style="@style/B7_1"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/box_non_stroke_r85"
+                android:backgroundTint="@color/GS_300"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="+ 소속 동아리 추가"
+                android:textColor="@color/BLACK" />
+
+
+            <TextView
+                style="@style/B6_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="44dp"
+                android:text="5-2. 소속 동아리 인증 캡처본을 첨부해주세요\n        (웹정보>학사정보>학생관리>동아리활동확인서발급)"
+                android:textColor="@color/GS_800" />
+
+            <TextView
+                style="@style/B6_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="* 동아리 소속 학생만 답변"
+                android:textColor="@color/GS_500" />
+
+            <Button
+                android:id="@+id/addInfoBtn"
+                style="@style/B7_1"
+                android:layout_width="64dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/box_non_stroke_r85"
+                android:backgroundTint="@color/BLACK"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="+ 추가"
+                android:textColor="@color/WHITE" />
+
+            <Button
+                android:id="@+id/registerBtn"
+                style="@style/B3_1"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="48dp"
+                android:background="@drawable/box_non_stroke_r8_blue"
+                android:text="회원가입"
+                android:textColor="@color/WHITE" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/addCircleBtn"
-            style="@style/B7_1"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/box_non_stroke_r85"
-            android:backgroundTint="@color/GS_300"
-            android:paddingStart="14dp"
-            android:paddingEnd="14dp"
-            android:text="+ 소속 동아리 추가"
-            android:textColor="@color/BLACK" />
-
-
-        <TextView
-            style="@style/B6_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="44dp"
-            android:text="5-2. 소속 동아리 인증 캡처본을 첨부해주세요\n        (웹정보>학사정보>학생관리>동아리활동확인서발급)"
-            android:textColor="@color/GS_800" />
-
-        <TextView
-            style="@style/B6_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="* 동아리 소속 학생만 답변"
-            android:textColor="@color/GS_500" />
-
-        <Button
-            android:id="@+id/addInfoBtn"
-            style="@style/B7_1"
-            android:layout_width="64dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/box_non_stroke_r85"
-            android:backgroundTint="@color/BLACK"
-            android:paddingStart="14dp"
-            android:paddingEnd="14dp"
-            android:text="+ 추가"
-            android:textColor="@color/WHITE" />
-
-        <Button
-            android:id="@+id/registerBtn"
-            style="@style/B3_1"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="48dp"
-            android:background="@drawable/box_non_stroke_r8_blue"
-            android:text="회원가입"
-            android:textColor="@color/WHITE" />
-    </LinearLayout>
-
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
+</layout>

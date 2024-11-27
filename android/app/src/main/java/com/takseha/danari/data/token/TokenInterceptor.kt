@@ -1,6 +1,5 @@
 package com.takseha.danari.data.token
 
-import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

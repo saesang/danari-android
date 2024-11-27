@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.takseha.danari.BuildConfig
 import com.takseha.danari.data.api.AuthService
+import com.takseha.danari.data.api.CircleService
 import com.takseha.danari.data.token.TokenInterceptor
 import com.takseha.danari.data.token.TokenManager
 import dagger.Module
@@ -20,18 +21,10 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
     @Provides
     @Singleton
     fun provideTokenManager(@ApplicationContext context: Context): TokenManager {
         return TokenManager(context)
-    }
-
-    @Provides
-    fun provideOkHttpClient(tokenManager: TokenManager): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(TokenInterceptor(tokenManager))
-            .build()
     }
 
     @Provides
@@ -43,17 +36,38 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    @AuthRetrofit
+    fun provideAuthRetrofit(gson: Gson): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.DANARI_BASE_URL)
-            .client(okHttpClient)
+            .client(OkHttpClient.Builder()
+                .build())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideAuthService(retrofit: Retrofit): AuthService {
+    @DefaultRetrofit
+    fun provideDefaultRetrofit(tokenManager: TokenManager, gson: Gson): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.DANARI_BASE_URL)
+            .client(OkHttpClient.Builder()
+                .addInterceptor(TokenInterceptor(tokenManager))
+                .build())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideAuthService(@AuthRetrofit retrofit: Retrofit): AuthService {
         return retrofit.create(AuthService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCircleService(@DefaultRetrofit retrofit: Retrofit): CircleService {
+        return retrofit.create(CircleService::class.java)
     }
 }

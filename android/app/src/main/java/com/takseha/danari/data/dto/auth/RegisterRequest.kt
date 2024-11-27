@@ -13,7 +13,7 @@ data class RegisterRequest(
     @SerializedName("studentId")
     val studentId: Int,
     @SerializedName("username")
-    val userName: String
+    val userId: String
 )
 
 data class UserClub(
