@@ -9,7 +9,7 @@ class TokenInterceptor(
 ) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
-        request = addTokenToRequest(request, tokenManager.accessToken)
+        request = addTokenToRequest(request, tokenManager.refreshToken)
         val response: Response
 
         try {

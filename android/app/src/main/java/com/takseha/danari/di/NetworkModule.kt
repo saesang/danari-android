@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.takseha.danari.BuildConfig
 import com.takseha.danari.data.api.AuthService
 import com.takseha.danari.data.api.CircleService
+import com.takseha.danari.data.api.ReviewService
 import com.takseha.danari.data.token.TokenInterceptor
 import com.takseha.danari.data.token.TokenManager
 import dagger.Module
@@ -16,6 +17,7 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -42,6 +44,7 @@ object NetworkModule {
             .baseUrl(BuildConfig.DANARI_BASE_URL)
             .client(OkHttpClient.Builder()
                 .build())
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
@@ -55,6 +58,7 @@ object NetworkModule {
             .client(OkHttpClient.Builder()
                 .addInterceptor(TokenInterceptor(tokenManager))
                 .build())
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
@@ -69,5 +73,11 @@ object NetworkModule {
     @Singleton
     fun provideCircleService(@DefaultRetrofit retrofit: Retrofit): CircleService {
         return retrofit.create(CircleService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideReviewService(@DefaultRetrofit retrofit: Retrofit): ReviewService {
+        return retrofit.create(ReviewService::class.java)
     }
 }

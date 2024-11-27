@@ -1,60 +1,75 @@
 package com.takseha.danari.presentation.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.takseha.danari.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.takseha.danari.data.dto.circle.Review
+import com.takseha.danari.databinding.FragmentReviewListBinding
+import com.takseha.danari.presentation.adapter.ReviewRVAdapter
+import com.takseha.danari.presentation.viewmodel.CircleMainViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReviewListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class ReviewListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentReviewListBinding? = null
+    private val binding get() = _binding!!
+    private val viewmodel : CircleMainViewModel by viewModels()
+    private lateinit var clubName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        clubName = requireActivity().intent.getStringExtra("clubName") ?: ""
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_review_list, container, false)
+        _binding = FragmentReviewListBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReviewListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ReviewListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        with(binding) {
+            viewmodel.getReviewList(clubName)
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewmodel.reviewState.collectLatest {
+                    setReviewList(it)
                 }
             }
+
+            backBtn.setOnClickListener {
+                it.findNavController().popBackStack()
+            }
+
+            postBtn.setOnClickListener {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    viewmodel.makeReview(clubName, reviewEditText.text.toString())
+                }
+                reviewEditText.setText("")
+            }
+        }
+    }
+
+    private fun setReviewList(
+        reviews: List<Review>
+    ) {
+        with(binding) {
+            val reviewRVAdapter =
+                ReviewRVAdapter(requireContext(), reviews)
+
+            reviewList.adapter = reviewRVAdapter
+            reviewList.layoutManager = LinearLayoutManager(requireContext())
+        }
     }
 }

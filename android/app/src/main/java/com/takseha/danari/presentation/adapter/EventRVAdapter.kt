@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.takseha.danari.R
-import com.takseha.danari.data.dto.circle.Event
-import com.takseha.danari.databinding.ItemBranchBinding
+import com.takseha.danari.data.dto.circle.Post
 import com.takseha.danari.databinding.ItemPostingBinding
 
 class EventRVAdapter(
     private val context: Context,
-    private val eventList: List<Event>
+    private val postList: List<Post>
 ) : RecyclerView.Adapter<EventRVAdapter.ViewHolder>() {
 
     interface OnClickListener {
@@ -35,8 +32,8 @@ class EventRVAdapter(
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = eventList[position].postTitle
-        holder.date.text = eventList[position].createdAt
+        holder.title.text = postList[position].postTitle
+        holder.date.text = postList[position].createdAt
 
         // 클릭 이벤트 처리
         holder.itemView.setOnClickListener { v ->
@@ -45,6 +42,6 @@ class EventRVAdapter(
     }
 
     override fun getItemCount(): Int {
-        return eventList.size
+        return postList.size
     }
 }
