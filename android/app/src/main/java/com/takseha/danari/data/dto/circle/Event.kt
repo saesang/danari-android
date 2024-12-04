@@ -2,9 +2,8 @@ package com.takseha.danari.data.dto.circle
 
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
-data class Post(
+data class Event(
     @SerializedName("clubName")
     val clubName: String,
     @SerializedName("createdAt")
@@ -18,7 +17,7 @@ data class Post(
     @SerializedName("postTitle")
     val postTitle: String,
     @SerializedName("postType")
-    val postType: PostType,
+    val postType: String,
     @SerializedName("username")
     val username: String
-) : Serializable
+)

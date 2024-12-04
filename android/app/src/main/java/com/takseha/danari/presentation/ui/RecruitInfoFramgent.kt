@@ -5,22 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.bumptech.glide.Glide
 import com.takseha.danari.R
-import com.takseha.danari.data.dto.circle.Post
-import com.takseha.danari.databinding.FragmentEventListBinding
-import com.takseha.danari.databinding.FragmentRecruitInfoFramgentBinding
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [RecruitInfoFramgent.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 class RecruitInfoFramgent : Fragment() {
-    private var _binding: FragmentRecruitInfoFramgentBinding? = null
-    private val binding get() = _binding!!
-    private lateinit var recruitInfo : Post
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            recruitInfo = it.getSerializable("recruit") as Post
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -28,20 +34,27 @@ class RecruitInfoFramgent : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRecruitInfoFramgentBinding.inflate(inflater, container, false)
-        return binding.root
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_recruit_info_framgent, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        with(binding) {
-            backBtn.setOnClickListener {
-                it.findNavController().popBackStack()
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment RecruitInfoFramgent.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            RecruitInfoFramgent().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
             }
-            title.text = recruitInfo.postTitle
-            postDate.text = recruitInfo.createdAt
-            contents.text = recruitInfo.postContent
-        }
     }
 }
