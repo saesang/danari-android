@@ -4,12 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.takseha.danari.R
 import com.takseha.danari.data.dto.circle.Event
@@ -66,37 +63,8 @@ class CircleMainFragment : Fragment() {
                     setEventList(it.events)
                     setRecruitList(it.recruitments)
                     setReviewList(it.reviews)
-
-                    if (it.events.isEmpty()) {
-                        noEventText.visibility = VISIBLE
-                    } else {
-                        noEventText.visibility = GONE
-                    }
-
-                    if (it.recruitments.isEmpty()) {
-                        noRecruitText.visibility = VISIBLE
-                    } else {
-                        noRecruitText.visibility = GONE
-                    }
-
-                    if (it.reviews.isEmpty()) {
-                        noReviewText.visibility = VISIBLE
-                    } else {
-                        noReviewText.visibility = GONE
-                    }
                 }
             }
-
-            moreEventBtn.setOnClickListener {
-                it.findNavController().navigate(R.id.action_circleMainFragment_to_eventListFragment)
-            }
-            moreRecruitBtn.setOnClickListener {
-                it.findNavController().navigate(R.id.action_circleMainFragment_to_recruitListFragment)
-            }
-            moreReviewBtn.setOnClickListener {
-                it.findNavController().navigate(R.id.action_circleMainFragment_to_reviewListFragment)
-            }
-
         }
     }
 

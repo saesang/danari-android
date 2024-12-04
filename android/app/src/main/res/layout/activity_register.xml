@@ -265,7 +265,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:entries="@array/dropdown_academic"
+                        android:entries="@array/dropdown_liberalArts"
                         android:onItemSelected="@{(parent, view, position, id) -> viewModel.onClubNameSelected(parent.getItemAtPosition(position).toString())}" />
                 </LinearLayout>
 
