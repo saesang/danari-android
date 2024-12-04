@@ -83,7 +83,6 @@ dependencies {
     // retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
-    implementation(libs.converter.scalars)
 
     // hilt
     implementation(libs.hilt.android)

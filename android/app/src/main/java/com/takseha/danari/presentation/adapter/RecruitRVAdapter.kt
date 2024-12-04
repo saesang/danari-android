@@ -6,13 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.takseha.danari.data.dto.circle.Post
+import com.takseha.danari.R
+import com.takseha.danari.data.dto.circle.Event
+import com.takseha.danari.data.dto.circle.Recruitment
+import com.takseha.danari.databinding.ItemBranchBinding
 import com.takseha.danari.databinding.ItemPostingBinding
 
 class RecruitRVAdapter(
     private val context: Context,
-    private val recruitList: List<Post>
+    private val recruitList: List<Recruitment>
 ) : RecyclerView.Adapter<RecruitRVAdapter.ViewHolder>() {
 
     interface OnClickListener {

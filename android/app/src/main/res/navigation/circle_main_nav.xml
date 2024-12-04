@@ -24,33 +24,15 @@
         android:id="@+id/eventListFragment"
         android:name="com.takseha.danari.presentation.ui.EventListFragment"
         android:label="fragment_event_list"
-        tools:layout="@layout/fragment_event_list" >
-        <action
-            android:id="@+id/action_eventListFragment_to_eventInfoFramgent"
-            app:destination="@id/eventInfoFramgent" />
-    </fragment>
+        tools:layout="@layout/fragment_event_list" />
     <fragment
         android:id="@+id/recruitListFragment"
         android:name="com.takseha.danari.presentation.ui.RecruitListFragment"
         android:label="fragment_recruit_list"
-        tools:layout="@layout/fragment_recruit_list" >
-        <action
-            android:id="@+id/action_recruitListFragment_to_recruitInfoFramgent"
-            app:destination="@id/recruitInfoFramgent" />
-    </fragment>
+        tools:layout="@layout/fragment_recruit_list" />
     <fragment
         android:id="@+id/reviewListFragment"
         android:name="com.takseha.danari.presentation.ui.ReviewListFragment"
         android:label="fragment_review_list"
         tools:layout="@layout/fragment_review_list" />
-    <fragment
-        android:id="@+id/eventInfoFramgent"
-        android:name="com.takseha.danari.presentation.ui.EventInfoFramgent"
-        android:label="fragment_event_info_framgent"
-        tools:layout="@layout/fragment_event_info_framgent" />
-    <fragment
-        android:id="@+id/recruitInfoFramgent"
-        android:name="com.takseha.danari.presentation.ui.RecruitInfoFramgent"
-        android:label="fragment_recruit_info_framgent"
-        tools:layout="@layout/fragment_recruit_info_framgent" />
 </navigation>

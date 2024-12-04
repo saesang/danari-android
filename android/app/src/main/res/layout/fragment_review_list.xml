@@ -42,9 +42,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviewList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="60dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/reviewPostLayout"
         app:layout_constraintTop_toBottomOf="@+id/titleLayout" />
 
@@ -79,6 +79,7 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="1dp"
             android:background="@drawable/box_non_stroke_r8_blue"
+            android:enabled="false"
             android:text="등록"
             android:textColor="@color/WHITE" />
     </LinearLayout>
