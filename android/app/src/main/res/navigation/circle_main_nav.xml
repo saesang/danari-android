@@ -9,30 +9,5 @@
         android:id="@+id/circleMainFragment"
         android:name="com.takseha.danari.presentation.ui.CircleMainFragment"
         android:label="fragment_circle_main"
-        tools:layout="@layout/fragment_circle_main" >
-        <action
-            android:id="@+id/action_circleMainFragment_to_eventListFragment"
-            app:destination="@id/eventListFragment" />
-        <action
-            android:id="@+id/action_circleMainFragment_to_recruitListFragment"
-            app:destination="@id/recruitListFragment" />
-        <action
-            android:id="@+id/action_circleMainFragment_to_reviewListFragment"
-            app:destination="@id/reviewListFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/eventListFragment"
-        android:name="com.takseha.danari.presentation.ui.EventListFragment"
-        android:label="fragment_event_list"
-        tools:layout="@layout/fragment_event_list" />
-    <fragment
-        android:id="@+id/recruitListFragment"
-        android:name="com.takseha.danari.presentation.ui.RecruitListFragment"
-        android:label="fragment_recruit_list"
-        tools:layout="@layout/fragment_recruit_list" />
-    <fragment
-        android:id="@+id/reviewListFragment"
-        android:name="com.takseha.danari.presentation.ui.ReviewListFragment"
-        android:label="fragment_review_list"
-        tools:layout="@layout/fragment_review_list" />
+        tools:layout="@layout/fragment_circle_main" />
 </navigation>
